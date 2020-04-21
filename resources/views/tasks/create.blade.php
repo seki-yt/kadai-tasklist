@@ -3,15 +3,29 @@
 @section('content')
 
 <!-- ここにページ毎のコンテンツを書く -->
-<h1>メッセージ新規作成ページ</h1>
+
+@if (count($errors) > 0)
+        <ul class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                <li class="ml-4">{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+<h1>新規作成ページ</h1>
 
     <div class="row">
         <div class="col-6">
             {!! Form::model($task, ['route' => 'tasks.store']) !!}
         
                 <div class="form-group">
-                    {!! Form::label('content', 'メッセージ:') !!}
+                    {!! Form::label('content', 'content:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
+                    {!! Form::label('status', 'status:') !!}
+                    {!! Form::text('status', null, ['class' => 'form-control']) !!}
                 </div>
         
                 {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
