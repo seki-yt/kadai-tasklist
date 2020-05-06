@@ -15,7 +15,7 @@ class Status extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             //
-            $table->string('status',10);
+           $table->string('status',10);
         });
     }
 

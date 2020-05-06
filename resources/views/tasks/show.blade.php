@@ -4,16 +4,16 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 
-<h1>id = {{ $task->id}} のメッセージ詳細ページ</h1>
+<h1>id = {{ $task->id }} のtask詳細ページ</h1>
 
 <table class="table table-bordered">
     <tr>
         <th>id</th>
-        <td>{{$task->id}}</td>
+        <td>{{ $task->id }}</td>
     </tr>
     <tr>
-        <th>メッセージ</th>
-        <td>{{$task->content }}</td>
+        <th>task</th>
+        <td>{{ $task->content }}</td>
     </tr>
     <tr>
         <th>status</th>
@@ -21,9 +21,10 @@
     </tr>
 </table>
 {!! link_to_route('tasks.edit', 'このメッセージを編集', ['id' => $task->id], ['class' => 'btn btn-light']) !!}
-
+@if (Auth::id() == $task->user_id)
  {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+@endif
 
 @endsection
