@@ -152,5 +152,7 @@ class TasksController extends Controller
         }else{
          return view('welcome');;
         }
+        
+        return redirect('/');
     }
 }
