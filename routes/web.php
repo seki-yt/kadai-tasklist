@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'TasksController@index');
 
 
 //ユーザ登録
@@ -27,8 +29,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // ユーザ機能
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('tasks', 'TasksController', ['only' => ['index','edit','store','destroy']]);
-});
+    
+    Route::resource('tasks', 'TasksController');
+ });
 
-Route::get('/', 'TasksController@index');
-Route::resource('tasks','TasksController');
