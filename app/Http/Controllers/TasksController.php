@@ -94,7 +94,7 @@ class TasksController extends Controller
         
        } else{
             
-         return view('welcome');;
+         return redirect('/');
          
         }
        
@@ -121,7 +121,7 @@ class TasksController extends Controller
             ]);
         }else{
             
-         return view('welcome');;
+         return redirect('/');
          
         }
         
@@ -168,7 +168,7 @@ class TasksController extends Controller
         
         }else{
             
-         return view('welcome');;
+         return redirect('/');
          
         }
         
