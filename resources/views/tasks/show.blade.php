@@ -4,7 +4,7 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 
-
+ @if (\Auth::id() === $task->user_id) 
 <h1>id = {{ $task->id }} のtask詳細ページ</h1>
 
 <table class="table table-bordered">
@@ -25,6 +25,7 @@
     {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+  @endif
     
 
 
